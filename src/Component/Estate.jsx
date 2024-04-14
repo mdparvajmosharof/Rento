@@ -37,7 +37,7 @@ const Estate = ({ estate }) => {
           {description.length > 80 ? (
             <span>
               {description.slice(0, 80)}.....
-              <Link className="text-blue-600 font-bold">See Details</Link>
+              <Link to={`/estate/${id}`} className="text-blue-600 font-bold">See Details</Link>
             </span>
           ) : (
             <span>{description}</span>

@@ -1,9 +1,14 @@
+import { useParams } from "react-router-dom";
+import Navbar from "./Navbar";
 
 
 const EstateDetails = () => {
+    const {id} = useParams();
+
     return (
         <div>
-details
+            <Navbar></Navbar>
+details{id}
         </div>
     );
 };
