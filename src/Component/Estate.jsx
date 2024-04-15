@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { BiArea } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
+import Footer from "./Footer";
 
 const Estate = ({ estate }) => {
   const {
@@ -67,6 +68,8 @@ const Estate = ({ estate }) => {
           </div>
         </div>
       </div>
+
+      <Footer></Footer>
     </div>
   );
 };

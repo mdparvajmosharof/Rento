@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,11 +8,13 @@ import Navbar from "../Component/Navbar";
 
 const Resister = () => {
   const [passwordShow, setPasswordShow] = useState(true);
-  // const [resisterSuccess, setResisterSuccess] = useState("");
+  const [resisterSuccess, setResisterSuccess] = useState("");
   // const [resisterError, setResisterError] = useState("");
-
+  const navigate = useNavigate();
+  
   const { createUser } = useContext(AuthContext);
   console.log(createUser);
+  
   const handleResister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -20,12 +22,6 @@ const Resister = () => {
     const photo_url = e.target.photo_url.value;
     const password = e.target.password.value;
 
-    console.log(name, email, photo_url, password);
-    createUser(email, password)
-      .then(() => {
-        toast("Resister succesed");
-      })
-      .catch();
     if (password.length < 6) {
       toast("Length must be at least 6 characters");
       return;
@@ -36,6 +32,19 @@ const Resister = () => {
       toast("Must have a Lowercase letter in the password");
       return;
     }
+
+    console.log(name, email, photo_url, password);
+    createUser(email, password)
+      .then(() => {
+        
+        alert("Resister succesed")
+        navigate('/login')
+        
+      })
+      .catch();
+
+      
+   
   };
 
   return (
