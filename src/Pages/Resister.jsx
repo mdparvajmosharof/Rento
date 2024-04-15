@@ -5,6 +5,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Navbar from "../Component/Navbar";
+import Swal from 'sweetalert2'
+
+
 
 const Resister = () => {
   const [passwordShow, setPasswordShow] = useState(true);
@@ -37,7 +40,13 @@ const Resister = () => {
     createUser(email, password)
       .then(() => {
         
-        alert("Resister succesed")
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
         navigate('/login')
         
       })
