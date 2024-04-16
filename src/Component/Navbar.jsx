@@ -2,10 +2,9 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
-
 const Navbar = () => {
-  const { logOut, user } = useContext(AuthContext);
-
+  const { authInfo, data } = useContext(AuthContext);
+  const { logOut, user } = authInfo;
   const handleSignOut = () => {
     console.log("log out click");
     logOut()
@@ -14,7 +13,6 @@ const Navbar = () => {
       })
       .catch((error) => console.log(error));
   };
-  
 
   const Navlinks = (
     <>
@@ -79,7 +77,8 @@ const Navbar = () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="Tailwind CSS Navbar component"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    src={data?.photo_url}
+                    // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                   />
                 </div>
               </div>
