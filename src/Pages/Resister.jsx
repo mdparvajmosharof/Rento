@@ -39,7 +39,7 @@ const Resister = () => {
 
     if (password.length < 6) {
       Swal.fire({
-        position: "top-end",
+        
         icon: "error",
         title: "Length must be at least 6 characters",
         showConfirmButton: false,
@@ -48,7 +48,7 @@ const Resister = () => {
       return;
     } else if (!/[A-Z]/.test(password)) {
       Swal.fire({
-        position: "top-end",
+        
         icon: "error",
         title: "Must have an Uppercase letter in the password",
         showConfirmButton: false,
@@ -57,7 +57,7 @@ const Resister = () => {
       return;
     } else if (!/[a-z]/.test(password)) {
       Swal.fire({
-        position: "top-end",
+        
         icon: "error",
         title: "Must have a Lowercase letter in the password",
         showConfirmButton: false,
@@ -88,7 +88,7 @@ const Resister = () => {
       })
       .catch(() => {
         Swal.fire({
-          position: "top-end",
+         
           icon: "error",
           title: "Resister Error. Please Cheak your internet connection .",
           showConfirmButton: false,
