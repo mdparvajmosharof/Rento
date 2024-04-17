@@ -8,10 +8,11 @@ import Swal from "sweetalert2";
 
 const Login = () => {
   const { authInfo } = useContext(AuthContext);
-  const { name, LogInUser, googleLogIn,githubLogIn, } = authInfo;
+  const { name, LogInUser, googleLogIn,githubLogIn, user} = authInfo;
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location);
+  console.log(user);
 
   const handleLogIn = (e) => {
     e.preventDefault();

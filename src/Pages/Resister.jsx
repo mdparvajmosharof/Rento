@@ -1,21 +1,23 @@
 import { useContext, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Navbar from "../Component/Navbar";
 import Swal from "sweetalert2";
+// import { updateProfile } from "firebase/auth";
+// import auth from "../Firebase/firebase.config";
 
 const Resister = () => {
   const [passwordShow, setPasswordShow] = useState(true);
   // const dataSet = useContext(AuthContext)
-  const [resisterSuccess, setResisterSuccess] = useState("");
+  // const [resisterSuccess, setResisterSuccess] = useState("");
   // const [resisterError, setResisterError] = useState("");
   const navigate = useNavigate();
 
-  const { authInfo, dataSet } = useContext(AuthContext);
-  const { createUser } = authInfo;
+  const { authInfo } = useContext(AuthContext);
+  const { createUser, updateUserProfile, user } = authInfo;
 
   const handleResister = (e) => {
     e.preventDefault();
@@ -24,11 +26,11 @@ const Resister = () => {
     const photo_url = e.target.photo_url.value;
     const password = e.target.password.value;
 
-    dataSet({
-      photo_url: photo_url,
-      name: name,
-    });
-    console.log("photo_url", photo_url, name);
+    // dataSet({
+    //   photo_url: photo_url,
+    //   name: name,
+    // });
+    // console.log("photo_url", photo_url, name);
 
     if (password.length < 6) {
       Swal.fire({
@@ -62,14 +64,22 @@ const Resister = () => {
     console.log(name, email, photo_url, password);
     createUser(email, password)
       .then(() => {
+        
+        
+        console.log("name67", name, photo_url, "res", user);
+
+
+
+        updateUserProfile(name, photo_url).then(() => {
+          navigate("/login");
+        });
+
         Swal.fire({
-          position: "top-end",
           icon: "success",
           title: "Register Successful!",
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/login");
       })
       .catch(() => {
         Swal.fire({
