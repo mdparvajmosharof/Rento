@@ -23,6 +23,9 @@ const Navbar = () => {
         <NavLink to="/about">About</NavLink>
       </li>
       <li>
+        <NavLink to="/inquiryForm">Inquiry Form</NavLink>
+      </li>
+      <li>
         <NavLink to="/updateProfile">Update Profile</NavLink>
       </li>
       <li>

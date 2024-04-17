@@ -7,6 +7,7 @@ import Resister from "../Pages/Resister";
 import UpdateProfile from "../Pages/UpdateProfile";
 import PrivateRoutes from "./PrivateRoutes";
 import EstateDetails from "../Component/EstateDetails";
+import InquiryForm from "../Pages/InquiryForm";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path:"/updateProfile",
                 element:<PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
+            },
+            {
+                path: "/inquiryForm",
+                element: <InquiryForm></InquiryForm>
             },
             {
                 path:"/login",
