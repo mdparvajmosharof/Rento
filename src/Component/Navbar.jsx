@@ -20,9 +20,6 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/about">About</NavLink>
-      </li>
-      <li>
         <NavLink to="/inquiryForm">Inquiry Form</NavLink>
       </li>
       <li>
@@ -75,10 +72,11 @@ const Navbar = () => {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost btn-circle avatar"
+                className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom"
+                data-tip={user.displayName}
               >
                 <div className="w-10 rounded-full">
-                  <img
+                  <img 
                     alt="Tailwind CSS Navbar component"
                     src={user.photoURL}
                     // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Navbar from "../Component/Navbar";
@@ -7,6 +7,11 @@ import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 
 const Login = () => {
+
+  useEffect(() => {
+    document.title = 'Rento | Log In'; // Quick solution
+}, []);
+
   const { authInfo } = useContext(AuthContext);
   const { name, LogInUser, googleLogIn,githubLogIn, user} = authInfo;
   const navigate = useNavigate();

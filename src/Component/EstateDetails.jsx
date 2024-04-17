@@ -6,6 +6,9 @@ import Footer from "./Footer";
 import { useEffect, useState } from "react";
 
 const EstateDetails = () => {
+  useEffect(() => {
+    document.title = 'Rento | Details';
+}, []);
   const [detailsId, setDetailsId] = useState([]);
   const { id } = useParams();
 

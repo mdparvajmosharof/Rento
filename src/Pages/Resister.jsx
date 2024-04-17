@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { ToastContainer, } from "react-toastify";
@@ -10,6 +10,11 @@ import Swal from "sweetalert2";
 // import auth from "../Firebase/firebase.config";
 
 const Resister = () => {
+
+  useEffect(() => {
+    document.title = 'Rento | Register';
+}, []);
+
   const [passwordShow, setPasswordShow] = useState(true);
   // const dataSet = useContext(AuthContext)
   // const [resisterSuccess, setResisterSuccess] = useState("");

@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
 
 const InquiryForm = () => {
+	useEffect(() => {
+		document.title = 'Rento | Inquiry'; 
+	}, []);
   return (
     <div>
 

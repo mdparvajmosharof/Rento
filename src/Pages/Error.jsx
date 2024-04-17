@@ -1,6 +1,10 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Error = () => {
+  useEffect(() => {
+    document.title = 'Rento | Error'; 
+}, []);
   return (
     <div>
       <section className="flex items-center h-full p-16 dark:bg-gray-50 dark:text-gray-800">

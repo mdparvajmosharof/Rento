@@ -1,14 +1,20 @@
+import { useEffect } from "react";
 import Banner from "../Component/Banner";
 import Estate from "../Component/Estate";
 import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
-import { useContext } from "react";
+
+
 
 const Home = () => {
-  const estates = useLoaderData();
 
+  useEffect(() => {
+    document.title = 'Rento'; 
+}, []);
+
+  const estates = useLoaderData();
+  
   return (
     <div>
       <Navbar></Navbar>
